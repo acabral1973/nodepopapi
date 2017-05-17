@@ -12,11 +12,11 @@ anuncios.push(new Anuncio({
 }));
 
 anuncios.push(new Anuncio({
-    nombre: 'Honda CB-250',
+    nombre: 'Bicicleta',
     venta: true,
-    precio: 1790,
-    foto: 'honda-cb-250.png',
-    tags: ['motor']
+    precio: 230.15,
+    foto: 'bici.jpg',
+    tags: ['lifestyle', 'motor']
 }));
 
 anuncios.push(new Anuncio({
@@ -50,10 +50,10 @@ anuncios.push(new Anuncio({
 }));
 
 anuncios.push(new Anuncio({
-    nombre: 'iPhone 5 o superior',
+    nombre: 'iPhone 3GS',
     venta: false,
-    precio: 300,
-    tags: ['mobile']
+    precio: 50.00,
+    tags: ['lifestyle', 'mobile']
 }));
 
 anuncios.push(new Anuncio({

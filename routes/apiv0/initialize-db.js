@@ -7,6 +7,7 @@ let Anuncio = require('../../models/Anuncio')
 const anuncios = require('./precarga-anuncios')
 let Usuario = require('../../models/Usuario')
 const usuarios = require('./precarga-usuarios')
+var sha256 = require('sha256');
 
 /* GET /apiv1/anuncios */
 router.get('/', function(req, res, next) {
@@ -56,8 +57,10 @@ router.get('/', function(req, res, next) {
         // cargo anuncios de prueba
         console.log("cargando usuarios de PRUEBA");
         for (let i=0; i < usuarios.length ; i++) {
+            // encripto la clave de usuario
+            usuarios[i].clave = sha256(usuarios[i].clave);
             console.log("Cargando usuario ", usuarios[i].nombre);
-            //Invoco función que guarda cada usuario en la base de datos
+            // Invoco función que guarda cada usuario en la base de datos
             await guardarElemento(usuarios[i]);
         };
     }

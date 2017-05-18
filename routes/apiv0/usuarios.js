@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 const Usuario = require('../../models/Usuario')
 const auth = require('../../lib/authentication');
+var sha256 = require('sha256');
 
 router.use(auth);
 
@@ -36,6 +37,7 @@ router.post('/', (req, res, next) => {
 
         // Si el usuario no existe lo guardo en base de datos
         if (!datosUsuario) {
+            usuario.clave = sha256(usuario.clave);
             usuario.save((err, usuarioGuardado) => {
                 if (err) {
                     next(err);    

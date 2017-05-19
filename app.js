@@ -26,10 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // rutas de mi app
 app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
 app.use('/apiv0/anuncios', require('./routes/apiv0/anuncios'));
+app.use('/apiv0/anuncios/tags', require('./routes/apiv0/anuncios'));
 app.use('/apiv0/usuarios', require('./routes/apiv0/usuarios'));
-app.use('/apiv0/initialize-db', require('./routes/apiv0/initialize-db'));
+app.use('/apiv0/initialize-db', require('./routes/initialize-db'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

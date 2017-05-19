@@ -1,4 +1,5 @@
 "use strict"
+var sha256 = require('sha256');
 
 const mongoose = require('mongoose');
 
@@ -8,6 +9,8 @@ var usuarioSchema = mongoose.Schema({
     email: String,
     clave: String
 });
+
+usuarioSchema.index({email: 1}, {unique: true});
 
 // creo un método estático para listar usuarios
 usuarioSchema.statics.list = function(filtro, limite, saltar, campos, ordenar, callback){
@@ -25,6 +28,21 @@ usuarioSchema.statics.busca = function(usuario, callback) {
     let query = Usuario.findOne({ email: usuario });
     return query.exec(callback);
 };
+
+// creo un método estático para guardar un usuario
+usuarioSchema.statics.guardaUsuario = function(usuario, callback){
+    
+    const nuevoUsuario = new Usuario(usuario);
+    nuevoUsuario.clave = sha256(nuevoUsuario.clave);  // haseo la clave
+    nuevoUsuario.save((err, usuarioCreado) => {
+        if (err) {
+            callback(err);    
+        }
+        console.log('Usuario ' + usuarioCreado.nombre + ' creado');
+        callback(null, usuarioCreado);
+    });
+};
+
 
 // creo el modelo y lo exporto
 var  Usuario = mongoose.model('Usuario', usuarioSchema);

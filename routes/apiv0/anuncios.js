@@ -8,8 +8,10 @@ var sha256 = require('sha256');
 
 router.use(auth);
 
-/* GET /apiv1/anuncios */
+// GET /apiv1/anuncios 
 router.get('/', function(req, res, next) {
+
+    console.log('ejecutando List');
 
     let nombre = req.query.nombre; //recojo parametro de consulta por nombre
     const tags = req.query.tags; //recojo parametro de consulta por tags
@@ -56,5 +58,14 @@ router.get('/', function(req, res, next) {
         res.json({success: true, result: anuncios});  
     });
 });
+
+// GET /apiv1/anuncios/tags 
+router.get('/tags', function(req, res, next) {
+
+    res.json({success: true, result: ['work', 'lifestyle', 'motor', 'mobile']});  
+});
+
+
+
 
 module.exports = router;

@@ -1,0 +1,20 @@
+{
+    "dataUsuarios": [
+        {
+            "nombre": "Visitante",
+            "email": "none",
+            "clave": "12345678"
+        },
+        {
+            "nombre": "Alejandro Cabral",
+            "email": "cabralejandro@gmail.com",
+            "clave": "S3cr3t@"
+        },
+        {
+            "nombre": "Javier Miguel",
+            "email": "jamg44@gmail.com",
+            "clave": "12345678"
+        }
+    ]
+}
+       

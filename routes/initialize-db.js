@@ -9,7 +9,7 @@ const sha256 = require('sha256');
 const async = require('async');
 const anuncios = require('../data/anuncios.json');
 const usuarios = require('../data/usuarios.json');
-require('../lib/translator');
+const translator = require('../lib/translator');
 
 
 
@@ -60,10 +60,9 @@ router.get('/', function(req, res, next) {
             }
         });
     });
-
     // configuro respuesta exitosa
     console.log('initialize-db: Inicialización de colecciones correcta');    
-    res.json({success: true, result: translator('INIT_DB_OK',idioma)});  
+    res.json({success: true, result: translator.translator('INIT_DB_OK',idioma)});  
 });
 
 module.exports = router;

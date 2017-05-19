@@ -12,28 +12,18 @@
         },
         {
             "clave": "USER_DB_ERROR",
-            "eng": " an error has occurred in USERS database",
-            "esp": " se ha producido un error en la base de datos de USUARIOS"
+            "eng": " an error has occurred in USERS collection",
+            "esp": " se ha producido un error en la colección de USUARIOS"
         },
         {
             "clave": "ADS_DB_ERROR",
-            "eng": " an error has occurred in ADS database",
-            "esp": " se ha producido un error en la base de datos de ANUNCIOS"
+            "eng": " an error has occurred in ADS collection",
+            "esp": " se ha producido un error en la colección de ANUNCIOS"
         },
         {
-            "clave": "",
-            "eng": "",
-            "esp": ""
-        },
-        {
-            "clave": "",
-            "eng": "",
-            "esp": ""
-        },
-        {
-            "clave": "",
-            "eng": "",
-            "esp": ""
+            "clave": "INIT_DB_OK",
+            "eng": "USERS and ADS collections initialization OK ",
+            "esp": "las bases de datos de USUARIOS Y ANUNCIOS se han inicializado correctamente "
         }
     ]
 }

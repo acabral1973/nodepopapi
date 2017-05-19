@@ -5,6 +5,7 @@ var router = express.Router();
 const Usuario = require('../../models/Usuario')
 const auth = require('../../lib/authentication');
 var sha256 = require('sha256');
+require('../../lib/translator');
 
 router.use(auth);
 
@@ -22,11 +23,14 @@ router.get('/', function(req, res, next) {
 
 //POST /apiv1/usuarios ------> Registro de usuarios
 router.post('/', (req, res, next) => {
-    console.log(req.body);
-
-    // Ceo un objeto de tipo Usuario con los parámetros que me llegan en el body
-    const usuario = new Usuario(req.body);
-
+    // Creo un objeto de tipo Usuario con los parámetros que me llegan en el body
+    
+    const idioma = req.body.idioma;
+    const usuario = new Usuario();
+    usuario.nombre = req.body.nombre;
+    usuario.email = req.body.email;
+    usuario.clave = req.body.clave;
+    
     // Busco el usuario en la base de datos, si existe devuelvo json indicándolo 
     // y si no, lo creo y devuelvo json con los datos guardados
     Usuario.busca(usuario.email, (err, datosUsuario) => {
@@ -37,19 +41,17 @@ router.post('/', (req, res, next) => {
 
         // Si el usuario no existe lo guardo en base de datos
         if (!datosUsuario) {
-            usuario.clave = sha256(usuario.clave);
-            usuario.save((err, usuarioGuardado) => {
+            Usuario.guardaUsuario(usuario, (err, usuarioGuardado) => {
                 if (err) {
                     next(err);    
                     return;
                 }
-                res.json({sucess: true, result: usuarioGuardado});
+                res.json({sucess: true, result: usuarioGuardado + translator('IS_SAVED', idioma) });
                 return;
             });
             return;
         }
-        res.json({sucess: false, result: 'El usuario '+ usuario.email +
-                                         ' ya existe' });
+        res.json({sucess: false, result: usuario.email + translator('IS_USER', idioma) });
         return;
     });
 });

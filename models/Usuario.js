@@ -33,12 +33,11 @@ usuarioSchema.statics.busca = function(usuario, callback) {
 usuarioSchema.statics.guardaUsuario = function(usuario, callback){
     
     const nuevoUsuario = new Usuario(usuario);
-    nuevoUsuario.clave = sha256(nuevoUsuario.clave);  // haseo la clave
+    nuevoUsuario.clave = sha256(nuevoUsuario.clave);  // hasheo la clave
     nuevoUsuario.save((err, usuarioCreado) => {
         if (err) {
             callback(err);    
         }
-        console.log('Usuario ' + usuarioCreado.nombre + ' creado');
         callback(null, usuarioCreado);
     });
 };

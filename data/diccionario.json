@@ -1,0 +1,39 @@
+{
+    "dataDiccionario": [
+        {
+            "clave": "IS_USER",
+            "eng": ": this user already exists in the database",
+            "esp": ": este usuario ya existe en la base de datos"
+        },
+        {
+            "clave": "IS_SAVED",
+            "eng": ": has been successfully saved",
+            "esp": " se ha guardado correctamente"
+        },
+        {
+            "clave": "USER_DB_ERROR",
+            "eng": " an error has occurred in USERS database",
+            "esp": " se ha producido un error en la base de datos de USUARIOS"
+        },
+        {
+            "clave": "ADS_DB_ERROR",
+            "eng": " an error has occurred in ADS database",
+            "esp": " se ha producido un error en la base de datos de ANUNCIOS"
+        },
+        {
+            "clave": "",
+            "eng": "",
+            "esp": ""
+        },
+        {
+            "clave": "",
+            "eng": "",
+            "esp": ""
+        },
+        {
+            "clave": "",
+            "eng": "",
+            "esp": ""
+        }
+    ]
+}

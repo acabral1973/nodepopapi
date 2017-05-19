@@ -11,8 +11,6 @@ router.use(auth);
 // GET /apiv1/anuncios 
 router.get('/', function(req, res, next) {
 
-    console.log('ejecutando List');
-
     let nombre = req.query.nombre; //recojo parametro de consulta por nombre
     const tags = req.query.tags; //recojo parametro de consulta por tags
     const venta = req.query.venta; //recojo parametro de consulta por tipo
@@ -28,7 +26,6 @@ router.get('/', function(req, res, next) {
         nombre = '^'+nombre;
         filtro.nombre.$regex = nombre;
         filtro.nombre.$options = 'i';
-        console.log('El filtro name queda asi ',filtro)
     }
 
     if (tags) {
@@ -61,11 +58,7 @@ router.get('/', function(req, res, next) {
 
 // GET /apiv1/anuncios/tags 
 router.get('/tags', function(req, res, next) {
-
     res.json({success: true, result: ['work', 'lifestyle', 'motor', 'mobile']});  
 });
-
-
-
 
 module.exports = router;

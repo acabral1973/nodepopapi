@@ -36,7 +36,7 @@ Para acceder a las funcionalidades de la API deberás acceder desde tu navegador
 * http://localhost:3000/apiv0/*script* (acceso a las diferentes funcionalidades, ver más adelante la información completa para cada una) 
 
 
-##Dependencias 
+## Dependencias 
 La app utiliza los siguientes módulos, versiones:
 * _body-parser_ ver. _~1.17.1_
 * _cookie-parser_ ver _~1.4.3_
@@ -61,13 +61,13 @@ Se ha incluído un script de inicializaciónd e la base de datos. Su funcionamie
 Todas las funcionalidades de al API requieren validación, o sea, solo se devuelven datos a usuarios registrados.  
 A continuación te detallo las funcionalidades de la API y su uso:
 
-###Listado de anuncios
+### Listado de anuncios
 Para ver una lista de anuncios bastará con que inicies una petición mediante la siguiente url: *http://localhost:3000/apiv0/anuncios*
 
-###Paginado de anuncios
+### Paginado de anuncios
 Para paginar anuncios basta con indicar en qué registro quieres comenzar (usando el parámetro *inicio*) y cuantos anuncios quieres ver (usando el parámetro *lineas*). De esta forma, si quisieras ver los anuncios de 3 al 8 (anuncios 3, 4, 5, 6, 7 y 8) deberías utilizar la siguiente sintaxis en tu petición: *http://localhost:3000/apiv0/anuncios__?inicio=3&lineas=5__*
 
-###Filtrar anuncios
+### Filtrar anuncios
 Puedes filtrar anuncios por varios campos diferentes, utilizando los parámetros correspondientes:
 * el parámetro *nombre* te permitirá buscar anuncios cuyo artículo empiece por una determinada cadena de caracteres. Por ejemplo *http://localhost:3000/apiv0/anuncios__?nombre=bici__* te permitirá obtener todos los anuncios cuyo artículo empieza por la cadena "bici". Este filtro es insensible a mayúsculas y ninúsculas por lo que da igual como lo escribas.
 * el parámetro *tags* te permitirá buscar anuncios de una determinada categoría. Por ejemplo *http://localhost:3000/apiv0/anuncios__?tags=motor__* te permitirá obtener todos los anuncios de la categoría motor. Recuerda que las categorías disponibles son *motor, mobile, work y lifestyle*
@@ -75,32 +75,32 @@ Puedes filtrar anuncios por varios campos diferentes, utilizando los parámetros
 * los parámetros *minprecio* y *maxprecio* te permitirán buscar anuncios en un determinado rango de precios. Si solo utilizas *minprecio* la API devolverá todos los anuncios cuyo precio sea superior. Si solo utilizas *maxprecio* la API devolverá todos los anuncios cuyo precio sea inferior. Si usas ambos combinados con un **&**, la API te devolverá todos los anuncios cuyo precio esté entre *minprecio* y *maxprecio*.  
 Por ejemplo *http://localhost:3000/apiv0/anuncios__?minprecio=100&maxprecio=500__* te permitirá obtener todos los anuncios cuyo precio es **mayor o igual**/ al precio mínimo estipulado y **menor o igual** al precio máximo indicado.
 
-###Ordenar anuncios
+### Ordenar anuncios
 * el parámetro *orden* te permitirá indicar el campo según el que deseas que se ordene el listado. Por ejemplo *http://localhost:3000/apiv0/anuncios__?orden=precio__* te devolverá el listado de anuncios ordenado por precio. 
 
-###Listado de *tags*
+### Listado de *tags*
 Para obtener un listado de las *tags* aceptadas debes utilizar la siguiente petición: *http://localhost:3000/apiv0/anuncios/tags*
 
-###Registrio de usuarios
+### Registrio de usuarios
 Para registrar un usuario nuevo debes iniciar una petición **POST**, por loq ue deberás utilizar una herramienta como [Postman](https://www.getpostman.com/) o similar. Para ello deberás indicar el **nombre** del usuario, su **email** y una **clave** de usuario. El método verifica que el email no esté siendo utilizado por otro usuario ya registrado. Recuerda indicar además el usuario y la contraseña de un usuario ya registrado, **solo los usuarios ya registrados pueden registrar un nuevo usuario**.
 
-###Listado de usuarios
+### Listado de usuarios
 bla bla bla
 
-##Otras consideraciones
+## Otras consideraciones
 
-###Autenticación
+### Autenticación
 bla bla bla
 
-###Cluster
+### Cluster
 bla bla bla
 
-###Internacionalización
+### Internacionalización
 bla bla bla
 
 ## Feedback
 Se agradecerá que cualquier feedback, reporte de errores, solicitudes de nuevas funcionalidades o preguntas, sea dirigido a cabralejandro@gmail.com
 
 ## Licencia
-Este proyecto tiene fines exclusivamente formativos, por lo que su distribución es libre en todos los sentidos, no poniéndose 
+Este proyecto tiene fines exclusivamente formativos, por lo que su distribución es libre en todos los sentidos, no existiendo
 restricción alguna al receptor para usarlo, copiarlo, reusarlo y redistribuirlo sin limitaciones ni condiciones.

@@ -15,19 +15,34 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
 
-var server = http.createServer(app);
+// arranco el cluster de Node
+const cluster = require('cluster'); 
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+ 
+// si es el master (primera instancia levantada) creo forks
+if (cluster.isMaster) {
+  // recupero el número de CPU disponibles
+  const numCPU = require('os').cpus().length;
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+  // creo tantos forks como CPUs disponibles
+  for ( let i = 0; i < numCPU; i++) {
+    cluster.fork();     
+  }
+
+} else {
+    // si no es el master entonces estoy en un fork y debo arrancar el 
+    // servidor HTTP
+        
+    // Create HTTP server
+    var server = http.createServer(app);
+
+
+    // Listen on provided port, on all network interfaces.
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
+}
 
 /**
  * Normalize a port into a number, string, or false.

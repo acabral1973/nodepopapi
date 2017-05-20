@@ -1,4 +1,4 @@
-﻿# nodepopapi - Repo práctica JS/Node/Mongo Boot V (Autor: Alejandro Cabral)
+﻿# **NodePOP API** - Repo práctica JS/Node/Mongo Boot V (Autor: Alejandro Cabral)
 
 <img alt="Logo NodePOP API" src="https://github.com/acabral1973/nodepopapi/blob/master/public/images/nodePOP-api-logo.png">
 
@@ -24,7 +24,7 @@ Unas sencillas instrucciones para poner en marcha este proyecto. Estas instrucci
 **Te recomiendo que mires la sección siguiente para conocer las dependencias de la aplicación**
 
 
-## Servidoresw (NodeJS, MongoDB y HTTP)
+## Servidores (NodeJS, MongoDB y HTTP)
 Para que la aplicación se ejecute correctamente debes tener en cuenta el siguiente entorno:
 * Debes disponer de un servidor [NodeJS](https://nodejs.org/en/) operativo 
 * Debes disponer de un servidor [MongoDB](https://www.mongodb.com/download-center?jmp=nav#community) operativo 
@@ -65,18 +65,18 @@ A continuación te detallo las funcionalidades de la API y su uso:
 Para ver una lista de anuncios bastará con que inicies una petición mediante la siguiente url: *http://localhost:3000/apiv0/anuncios*
 
 ### Paginado de anuncios
-Para paginar anuncios basta con indicar en qué registro quieres comenzar (usando el parámetro *inicio*) y cuantos anuncios quieres ver (usando el parámetro *lineas*). De esta forma, si quisieras ver los anuncios de 3 al 8 (anuncios 3, 4, 5, 6, 7 y 8) deberías utilizar la siguiente sintaxis en tu petición: *http://localhost:3000/apiv0/anuncios__?inicio=3&lineas=5__*
+Para paginar anuncios basta con indicar en qué registro quieres comenzar (usando el parámetro *inicio*) y cuantos anuncios quieres ver (usando el parámetro *lineas*). De esta forma, si quisieras ver los anuncios de 3 al 8 (anuncios 3, 4, 5, 6, 7 y 8) deberías utilizar la siguiente sintaxis en tu petición: *http://localhost:3000/apiv0/anuncios**?inicio=3&lineas=5***
 
 ### Filtrar anuncios
 Puedes filtrar anuncios por varios campos diferentes, utilizando los parámetros correspondientes:
-* el parámetro *nombre* te permitirá buscar anuncios cuyo artículo empiece por una determinada cadena de caracteres. Por ejemplo *http://localhost:3000/apiv0/anuncios__?nombre=bici__* te permitirá obtener todos los anuncios cuyo artículo empieza por la cadena "bici". Este filtro es insensible a mayúsculas y ninúsculas por lo que da igual como lo escribas.
-* el parámetro *tags* te permitirá buscar anuncios de una determinada categoría. Por ejemplo *http://localhost:3000/apiv0/anuncios__?tags=motor__* te permitirá obtener todos los anuncios de la categoría motor. Recuerda que las categorías disponibles son *motor, mobile, work y lifestyle*
-* el parámetro *venta* te permitirá buscar anuncios de venta o de compra según desees. Si utilizas *venta=true* verás los de venta y si utilizas *venta=false* verás los compra. Por ejemplo *http://localhost:3000/apiv0/anuncios__?venta=true__* te permitirá obtener todos los anuncios de venta.
+* el parámetro *nombre* te permitirá buscar anuncios cuyo artículo empiece por una determinada cadena de caracteres. Por ejemplo *http://localhost:3000/apiv0/anuncios**?nombre=bici*** te permitirá obtener todos los anuncios cuyo artículo empieza por la cadena "bici". Este filtro es insensible a mayúsculas y ninúsculas por lo que da igual como lo escribas.
+* el parámetro *tags* te permitirá buscar anuncios de una determinada categoría. Por ejemplo *http://localhost:3000/apiv0/anuncios**?tags=motor*** te permitirá obtener todos los anuncios de la categoría motor. Recuerda que las categorías disponibles son *motor, mobile, work y lifestyle*
+* el parámetro *venta* te permitirá buscar anuncios de venta o de compra según desees. Si utilizas *venta=true* verás los de venta y si utilizas *venta=false* verás los compra. Por ejemplo *http://localhost:3000/apiv0/anuncios**?venta=true*** te permitirá obtener todos los anuncios de venta.
 * los parámetros *minprecio* y *maxprecio* te permitirán buscar anuncios en un determinado rango de precios. Si solo utilizas *minprecio* la API devolverá todos los anuncios cuyo precio sea superior. Si solo utilizas *maxprecio* la API devolverá todos los anuncios cuyo precio sea inferior. Si usas ambos combinados con un **&**, la API te devolverá todos los anuncios cuyo precio esté entre *minprecio* y *maxprecio*.  
-Por ejemplo *http://localhost:3000/apiv0/anuncios__?minprecio=100&maxprecio=500__* te permitirá obtener todos los anuncios cuyo precio es **mayor o igual**/ al precio mínimo estipulado y **menor o igual** al precio máximo indicado.
+Por ejemplo *http://localhost:3000/apiv0/anuncios**?minprecio=100&maxprecio=500*** te permitirá obtener todos los anuncios cuyo precio es **mayor o igual**/ al precio mínimo estipulado y **menor o igual** al precio máximo indicado.
 
 ### Ordenar anuncios
-* el parámetro *orden* te permitirá indicar el campo según el que deseas que se ordene el listado. Por ejemplo *http://localhost:3000/apiv0/anuncios__?orden=precio__* te devolverá el listado de anuncios ordenado por precio. 
+* el parámetro *orden* te permitirá indicar el campo según el que deseas que se ordene el listado. Por ejemplo *http://localhost:3000/apiv0/anuncios**?orden=precio*** te devolverá el listado de anuncios ordenado por precio. 
 
 ### Listado de *tags*
 Para obtener un listado de las *tags* aceptadas debes utilizar la siguiente petición: *http://localhost:3000/apiv0/anuncios/tags*

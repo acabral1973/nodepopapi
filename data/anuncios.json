@@ -4,28 +4,28 @@
             "nombre": "Ford Ka 2008",
             "venta": true,
             "precio": 1800,
-            "foto": "ford-ka.png",
+            "foto": "/images/anuncios/ford-ka.jpg",
             "tags": ["motor"]
         },
         {
             "nombre": "Bicicleta",
             "venta": true,
             "precio": 230.15,
-            "foto": "bici.jpg",
+            "foto": "/images/anuncios/bici.jpg",
             "tags": ["lifestyle", "motor"]
         },
         {
-            "nombre": "Lumia 660",
+            "nombre": "Lumia 620",
             "venta": true,
             "precio": 78,
-            "foto": "lumia-660.png",
+            "foto": "/images/anuncios/lumia-620.jpg",
             "tags": ["mobile"]
         },
         {
             "nombre": "Caja herramientas",
             "venta": true,
             "precio": 55,
-            "foto": "caja-herramientas.png",
+            "foto": "/images/anuncios/caja-herramientas.jpg",
             "tags": ["work", "lifestyle"]
         },
         {
@@ -56,6 +56,7 @@
             "nombre": "Taladro con percutor",
             "venta": true,
             "precio": 50,
+            "foto": "/images/anuncios/taladro.jpg",
             "tags": ["work", "lifestyle"]
         }
     ]

@@ -91,11 +91,16 @@ Verás que el campo *clave* no es visible, esto es porque se han almacenado medi
 ## Otras consideraciones
 
 ### Autenticación
-En la versión actual de la API se utiliza autenticación básica, mediante el módulo [basic-auth](https://github.com/jshttp/basic-auth) y las claves se encriptan mediante un hash, basado en el módulo [sha256](https://www.npmjs.com/package/sha256).
+En la versión actual de la API se utiliza autenticación básica, mediante el módulo [basic-auth](https://github.com/jshttp/basic-auth) y las claves se encriptan mediante un hash, basado en el módulo [sha256](https://www.npmjs.com/package/sha256).  
+
+### Imágenes
+En la pregarca de anuncios en la base de datos, se cargan fotos exclusivamente para los anuncios de venta. Básicamente me parecía que era el único sitio donde tenía sentido, ya que en un anuncio en el que alguien demanda un producto que desea comprar, no parecía útil una foto, pero bueno, esto ha sido una *desición de diseño* que no tiene efecto sobre el código ni las funcionalidades de la API.  
+
+Las imágenes se han almacenado en */public/images/anuncios* y están en formato *jpg*. Puede accederse a ellas mediante la url: *http://localhost:3000/images/anuncios/fichero.jpg* donde *fichero.jpg* es el nombre del archivo de imagen que, en cada registro, el listado de anuncios devuelve para el campo *foto*.
 
 ### Cluster
 Dentro de los requerimientos se indicó que *El API recibirá bastantes peticiones en algunos momentos del día, especialmente los fines de
-semana, por tanto queremos que aproveche lo mejor posible los recursos del servidor donde estará instalado*.  En este sentido he configurado la funcionalidad de cluster, de forma que se inicie un fork por cada núcleo de procesador disponible en el equipo.
+semana, por tanto queremos que aproveche lo mejor posible los recursos del servidor donde estará instalado*.  En este sentido he configurado la funcionalidad de cluster, de forma que se inicie un fork por cada núcleo de procesador disponible en el equipo.  
 
 ### Internacionalización
 Dentro de los requerimientos se indicó que *La app estará disponible en inglés o español, por tanto el API será utilizado especificando el idioma del usuario en cada petición. Los tags se tratarán siempre en inglés por tanto no necesitan traducciones. Lo único que el API devolverá traducido al lenguaje del usuario son los mensajes de error, ya que la app mostrará estos mensajes al usuario.*  
@@ -103,13 +108,13 @@ En este sentido se ha creado un módulo de traducción, llamado **translator** u
 La *clave* es un literal que sirve para buscar el mensaje de error adecuado, y solo se utiliza desde el código. El "diccionario" que tiene todas las *claves y sus correspondientes "traducciones" es un fichero **JSON* ubicado en */data/diccionario.json*, por lo que si se necesitan nuevos errores traducidos, bastará con agregar nuevos registros a este formato.  
 El *idioma* es un parámetro que debe indicarse en las peticiones de usuario mediante el parámetro *idioma*. El parámetro */idioma* puede tener dos valores: *esp* 'o *eng*, que indican respectivamente que el idioma de la solicitud y por lo tento en el que se devolverán los errorers, será Español o Inglés, respectivamente.  
 
-Por ejemplo, si se desea el listado de usuarios y que el idioma de devolución de los errores sea inglés, se debe iniciar una petición **GET** con la siguiente url: *http://localhost:3000/apiv0/anuncios?idioma=eng*
+Por ejemplo, si se desea el listado de usuarios y que el idioma de devolución de los errores sea inglés, se debe iniciar una petición **GET** con la siguiente url: *http://localhost:3000/apiv0/anuncios?idioma=eng*  
 
-**Si en las peticiones no se indica el parámetro idioma, o se utilizan valores incorrectos para el mismo, las respuestas se devuelven por defecto en Español, que para algo estamos en MadriZ**
+**Si en las peticiones no se indica el parámetro idioma, o se utilizan valores incorrectos para el mismo, las respuestas se devuelven por defecto en Español, que para algo estamos en MadriZ**  
 
-## Feedback
-Se agradecerá que cualquier feedback, reporte de errores, solicitudes de nuevas funcionalidades o preguntas, sea dirigido a cabralejandro@gmail.com
+## Feedback  
+Se agradecerá que cualquier feedback, reporte de errores, solicitudes de nuevas funcionalidades o preguntas, sea dirigido a cabralejandro@gmail.com  
 
 ## Licencia
 Este proyecto tiene fines exclusivamente formativos, por lo que su distribución es libre en todos los sentidos, no existiendo
-restricción alguna al receptor para usarlo, copiarlo, reusarlo y redistribuirlo sin limitaciones ni condiciones.
+restricción alguna al receptor para usarlo, copiarlo, reusarlo y redistribuirlo sin limitaciones ni condiciones.  

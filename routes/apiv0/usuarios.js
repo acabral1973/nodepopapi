@@ -5,19 +5,20 @@ var router = express.Router();
 const Usuario = require('../../models/Usuario')
 const auth = require('../../lib/authentication');
 var sha256 = require('sha256');
-require('../../lib/translator');
+const translator = require('../../lib/translator');
 
 router.use(auth);
 
 // GET /apiv1/usuarios ------> Listado de usuarios
 router.get('/', function(req, res, next) {
 
+    const idioma = req.query.idioma;
     Usuario.list((err, usuarios) => {
         if (err) {
-            next(err);    //devuelvo el error del método list
+            next(err);    
             return;
         }
-        res.json({success: true, result: usuarios});  //devuelvo elresultado del método list
+        res.json({success: true, result: usuarios});  
     });
 });
 
@@ -25,7 +26,7 @@ router.get('/', function(req, res, next) {
 router.post('/', (req, res, next) => {
     // Creo un objeto de tipo Usuario con los parámetros que me llegan en el body
     
-    const idioma = req.body.idioma;
+    const idioma = req.query.idioma;
     const usuario = new Usuario();
     usuario.nombre = req.body.nombre;
     usuario.email = req.body.email;
@@ -46,12 +47,12 @@ router.post('/', (req, res, next) => {
                     next(err);    
                     return;
                 }
-                res.json({sucess: true, result: usuarioGuardado + translator('IS_SAVED', idioma) });
+                res.json({sucess: true, result: usuarioGuardado.nombre + translator.translate('IS_SAVED', idioma) });
                 return;
             });
             return;
         }
-        res.json({sucess: false, result: usuario.email + translator('IS_USER', idioma) });
+        res.json({sucess: false, result: usuario.nombre + translator.translate('IS_USER', idioma) });
         return;
     });
 });

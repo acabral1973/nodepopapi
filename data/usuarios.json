@@ -2,7 +2,7 @@
     "dataUsuarios": [
         {
             "nombre": "Visitante",
-            "email": "none",
+            "email": "guest",
             "clave": "12345678"
         },
         {

@@ -27,9 +27,12 @@ anuncioSchema.statics.guardaAnuncio = function(anuncio, callback){
     const nuevoAnuncio = new Anuncio(anuncio);
     nuevoAnuncio.save((err, anuncioCreado) => {
         if (err) {
-            return err;    
+            callback(err);    
+            return;
         }
         console.log('Anuncio ' + anuncioCreado.nombre + ' creado');
+        callback(null, anuncioCreado);
+        return;
     });
 };
 

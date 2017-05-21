@@ -56,17 +56,23 @@ Este enlace te llevará al fichero [package.json](https://github.com/acabral1973
 ## Inicializar la base de datos
 Se ha incluído un script de inicialización de la base de datos. Su funcionamiento es sencillo, vacía las colecciones de *Usuarios* y *Anuncios* y carga usuarios y anuncios de prueba. Si quisieras agregar nuevos usuarios o anuncios de prueba, bastaría con que editaras los ficheros */data/usuarios.json* y/o */data/anuncios.json* y agregues nuevos registros... **¡¡¡RESPETA EL FORMATO PLEASE!!!**
 
-Para ejecutar el script de inicialización basta con que desde tu navegador accedas a la siguiente url: *http://localhost:3000/initialize-db*
+Para ejecutar el script de inicialización se han planteado dos vías:  
+* Ejecución web: basta con que desde tu navegador accedas a la url *http://localhost:3000/initialize-db*, pero creo que en un sistema real, tal vez dar una funcionalidad así que se pueda ejecutar remotamente tal vez no sea lo idóneo, asi que disponemos de otro modo de ejecución:  
+* Ejecución en consola: basta con ejecutar el script */lib/initalize-db.js*  
 
 ## Uso de la API
-Todas las funcionalidades de al API requieren validación, o sea, solo se devuelven datos a usuarios registrados.  
+Todas las funcionalidades de al API requieren validación, o sea, solo se devuelven datos a usuarios registrados. De cara a las pruebas, se puede usar como usuario *guest* y contraseña *12345678* (en ambos casos es sensitivo a mayúsculas y minúsculas)  
+
 A continuación te detallo las funcionalidades de la API y su uso:
 
 ### Listado de anuncios
 Para ver una lista de anuncios bastará con que inicies una petición **GET** mediante la siguiente url: *http://localhost:3000/apiv0/anuncios*
 
 ### Paginado de anuncios
-Para paginar anuncios basta con indicar en qué registro quieres comenzar (usando el parámetro *inicio*) y cuantos anuncios quieres ver (usando el parámetro *lineas*). De esta forma, si quisieras ver los anuncios de 3 al 8 (anuncios 3, 4, 5, 6, 7 y 8) deberías utilizar la siguiente sintaxis en tu petición **GET**: *http://localhost:3000/apiv0/anuncios?inicio=3&lineas=5*
+Para paginar anuncios basta con indicar en qué registro quieres comenzar (usando el parámetro *inicio*) y cuantos anuncios quieres ver (usando el parámetro *lineas*).  
+El parámetro *inicio* indicará a la API, desde qué registro quieres comenzar el listado (recuerda que el primer registro es el *cero*)  
+Por su parte, el parámetro *lineas* indica cuántas líneas quieres ver en el listado.  
+De esta forma, si quisieras ver los anuncios del tercero al quinto (anuncios 3, 4 y 5) deberías utilizar la siguiente sintaxis en tu petición **GET**: *http://localhost:3000/apiv0/anuncios?inicio=2&lineas=3*
 
 ### Filtrar anuncios
 Puedes filtrar anuncios por varios campos diferentes, utilizando los parámetros que te explico más abajo en tus peticiones **GET**:

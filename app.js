@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// cargo módulod e conección mongoose y los modelos (Anuncio y Usuario)
+// cargo módulo de conección mongoose y los modelos (Anuncio y Usuario)
 require('./lib/connect-mongoose');
 require('./models/Anuncio');
 require('./models/Usuario');

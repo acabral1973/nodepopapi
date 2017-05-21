@@ -32,7 +32,7 @@ La configuración de la base de datos está en el código. Inicialmente está co
 
 La aplicación crea un servidor HTTP básico que escuchará por defecto en el puerto 3000 del equipo donde se ejecute. 
 Para acceder a las funcionalidades de la API deberás acceder desde tu navegador a las siguientes url:
-* http://localhost:3000 o http://127.0.0.1:3000 (página principal de la API, que te dará acceso a este repo de gitHub)
+* [http://localhost:3000] o [http://127.0.0.1:3000] (página principal de la API, que te dará acceso a este repo de gitHub)
 * http://localhost:3000/apiv0/*script* (acceso a las diferentes funcionalidades, ver más adelante la información completa para cada una) 
 
 

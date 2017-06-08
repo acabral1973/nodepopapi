@@ -12,8 +12,9 @@ Esta API proveé los métodos necesarios para estas funciones básicas, y ademá
 * registrar un usuario 
 * ver la lista de usuarios 
 
-**Para acceder a la documentación de la API:** click [aqui](https://github.com/acabral1973/nodepopapi/blob/master/NODEPOPAPI.md)
-**Para acceder al sitio web estático (Ejercicio 2):** click [aqui](http://devops.smartech.es)
+**Para acceder a la documentación de la API:** click [aqui](https://github.com/acabral1973/nodepopapi/blob/master/NODEPOPAPI.md)  
+**Para acceder al sitio web estático (Ejercicio 2):** click [aqui](http://devops.smartech.es)  o usando La IP del servidor http://52.169.151.187 o esta url http://devops.smartech.es  
+**Para acceder a la API:** click [aqui](https://nodepopapi.smartech.es) u usando la siguiente url: https://nodepopapi.smartech.es  
 
 **Nota importante:** la autenticación de la API se dejó como en la entrega anterior (basic authentication) por lo que al usarla, se deben introducir usuario y contraseña. Para todas las pruebas usar los siguientes valores:  
 * **Usuario:** devops@keepcoding.com
